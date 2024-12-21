@@ -1,0 +1,7 @@
+#2d54ed - blue
+#ffffff1a - light black
+
+
+<a href="javascript:void(0)" class="closebtn" onclick="()">&times;</a>
+
+#f4f4f4

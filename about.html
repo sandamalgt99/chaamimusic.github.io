@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaami Music | About</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* General Styles */
+        /*div {
+    height: 400px;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)
+            }*/
+        p {
+            font-family: 'Gill Sans';
+            margin: 0;
+            padding: 0;
+            color: #f2f1f7;
+        }
+
+        h1 {
+            font-family: 'Gill Sans';
+            margin: 0;
+            padding: 0;
+            color: #f2f1f7;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0.5;
+            background-image: linear-gradient(to right, #7f00c5 , #1179ff);
+            /*background-color:#f4f4f4;*/
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #f4f4f4;
+        }
+
+        header {
+            color:white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        body.dark-mode header {
+            background-color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #2d54ed;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+            margin-left: 200px; /* Adjust for the sidebar */
+        }
+
+        section {
+            margin: 2rem 0;
+        }
+
+        body.dark-mode footer {
+            background-color: #392d2d;
+        }
+
+        #home {
+            background-color: #ffffff4e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(15, 134, 226, 0.831);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode #home {
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+        }
+
+        button {
+            background-color: #ffffff4e;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #222325;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #222325;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: auto;
+        }
+
+        .slide {
+            display:none;
+        }
+
+        .slide img {
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: rgba(22, 12, 12, 0.582);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 6px 0 0 6px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color:#2d54ed;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #4947477a;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color:#2d54ed;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 10;
+            background-color: #ffffff45;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            color:white;
+            display: inline-flex;
+            transition: 0.3s;
+        }
+        /*true*/
+        .sidebar a:hover {
+            background-color: #1e1e1e;
+            
+        }
+
+    </style>
+</head>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="logo1.png" width="128px" height="128px" alt="Logo 1">
+        <a href="index.html"><i class="fas fa-home"></i>Home</a>
+        <a href="music.html"><i class="fas fa-music"></i>Music</a>
+        <a href="radio.html"><i class="material-icons"></i>Radio</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i>about</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+    </div>
+    <header>
+        <br>
+        <br>
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="search()">Search</button>
+        </div>        
+    </header>
+    <main>
+        <section id="about">
+            <P>About Us</P>
+            <p>This website is dedicated to showcasing amazing music from various artists. Stay tuned for the latest tracks and updates!</p>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
