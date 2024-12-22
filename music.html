@@ -3,231 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaami Music | Radio</title>
+    <title>Chaami Music | Music</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="chaamimusic.ico" type="image/x-icon">
     <style>
         /* General Styles */
-        h1 {
-            font-family: 'Gill Sans';
-            margin: 0;
-            padding: 0;
-            color: #290d8f;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
+        h1{
+    font-family: 'Gill Sans';
+    margin: 0;
+    padding: 0;
+    color: #290d8f;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        body.dark-mode {
-            background-color: #121212;
-            color: #f4f4f4;
-        }
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
+nav ul li {
+    margin: 0 1rem;
+}
 
-        body.dark-mode header {
-            background-color: #1a1a1a;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: background 0.3s;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
-        nav ul li {
-            margin: 0 1rem;
-        }
+main {
+    padding: 2rem;
+    text-align: center;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem;
-            transition: background 0.3s;
-        }
+section {
+    margin: 2rem 0;
+}
 
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
 
-        main {
-            padding: 2rem;
-            text-align: center;
-            margin-left: 200px; /* Adjust for the sidebar */
-        }
+/* Home Page Styles */
+#home {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        section {
-            margin: 2rem 0;
-        }
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+button:hover {
+    background-color: #555;
+}
 
-        body.dark-mode footer {
-            background-color: #1a1a1a;
-        }
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
 
-        #home {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, color 0.3s;
-        }
+.slide {
+    display: none;
+}
 
-        body.dark-mode #home {
-            background-color: #1e1e1e;
-            color: #f4f4f4;
-        }
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
 
-        button:hover {
-            background-color: #555;
-        }
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
 
-        .dark-mode-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1.5rem;
-        }
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
 
-        .dark-mode-toggle:hover {
-            background-color: #555;
-        }
+/* Dots */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
 
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
+.active, .dot:hover {
+    background-color: #717171;
+}
 
-        .slide {
-            display: none;
-        }
+/* Fade Animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
 
-        .slide img {
-            width: 50%;
-            border-radius: 10px;
-        }
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
 
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f4;
+}
 
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
 
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
+body.dark-mode header {
+    background-color: #1a1a1a;
+}
 
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
+.music-container {
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .active, .dot:hover {
-            background-color: #717171;
-        }
+body.dark-mode .music-container {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
 
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            overflow-x: hidden;
-            padding-top: 20px;
-            transition: 0.3s;
-        }
-
-        .sidebar a {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-    </style>
+</style>
+</head>
 </head>
 <body>
     <center>
@@ -248,28 +210,40 @@
             <input type="text" id="searchInput" placeholder="Search...">
             <button onclick="search()">Search</button>
         </div>        
-    <center>
-    <audio id="radioPlayer" autoplay controls>
-        <source src="https://playerjs.com/builder/player=vnbpdl0guapt" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    </center>
+    </header>
+    <main>
+        <section id="music-gallery">
+            <h1>Music Gallery</h1>
+            <div class="music-container">
+                <div class="music-item">
+                    <h3>Arabic x Punjabi - Chaami Music NCS - Copyright Free Sounds</h3>
+                    <audio controls>
+                        <source src="track1.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="music-item">
+                    <h3>Blast Of The Rhythm - Chaami Music NCS - Copyright Free Sounds</h3>
+                    <audio controls>
+                        <source src="track2.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <!-- Add more tracks as needed -->
+            </div>
+        </section>
+
+        <!-- YouTube Video Section -->
+        <section id="video-section">
+            <h2>Featured Video</h2>
+            <!-- Replace the video URL with your actual YouTube video URL -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5f9jPnAZI18?si=nat3GEHwz3jGXPab" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/FfYFrmV825I?si=36pJgaui7QUAuXHH" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Chaami Music All rights reserved</p>
     </footer>
-    <script>
-        const audio = document.getElementById('radioPlayer');
-    
-        // Play the audio
-        function playAudio() {
-            audio.play();
-        }
-    
-        // Pause the audio
-        function pauseAudio() {
-            audio.pause();
-        }
-    </script>
-    
+    <script src="scripts.js"></script>
 </body>
 </html>
