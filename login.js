@@ -65,3 +65,15 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
       alert(error.message);
     });
 });
+
+// Protect Dashboard: Check if user is logged in
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // Set welcome message
+    document.getElementById('welcomeMessage').textContent = "Welcome, " + user.email;
+  } else {
+    // If NOT logged in ➔ redirect to login page
+    alert('Please login first!');
+    window.location.href = "index.html";
+  }
+});
