@@ -77,3 +77,34 @@ auth.onAuthStateChanged(user => {
     window.location.href = "login.html";
   }
 });
+
+// Firebase Initialization
+const auth = firebase.auth();
+const db = firebase.database(); // Realtime Database
+
+// Signup Function
+function signUp(email, password) {
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // User created!
+      const user = userCredential.user;
+      
+      // Now auto-save to database
+      db.ref('users/' + user.uid).set({
+        email: user.email,
+        createdAt: new Date().toISOString()
+      }).then(() => {
+        alert('Signup successful and user saved to database!');
+        window.location.href = "dashboard.html"; // Redirect to dashboard
+      }).catch((error) => {
+        console.error('Error saving user to database:', error);
+        alert('Signup successful but error saving to database.');
+      });
+      
+    })
+    .catch((error) => {
+      console.error('Signup error:', error);
+      alert(error.message);
+    });
+}
+
