@@ -1,425 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chaami Music | Home</title>
-
-  <!-- External Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Favicon -->
-  <link rel="icon" href="chaamimusic.ico" type="image/x-icon">
-
-    <style>
-        /* Reset some basic styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f7f9fc;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Container */
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-/* Header / Navbar */
-.header {
-  background-color: #0d1117;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 1.5rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #1DB954; /* Green hover */
-}
-
-/* Mobile Menu */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-/* Search Box */
-.search-box {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.search-box input {
-  padding: 0.5rem;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-}
-
-.search-box button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background: #1DB954;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-}
-
-.search-box button:hover {
-  background: #17a34a;
-}
-
-/* Slideshow */
-.slideshow {
-  position: relative;
-  max-width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.slide {
-  display: none;
-}
-
-.slide img {
-  width: 50%;
-  border-radius: 10px;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.3s;
-  user-select: none;
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 0 3px 3px 0;
-}
-
-.prev {
-  left: 0;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Dots */
-.dots-container {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.dot {
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Footer */
-.footer {
-  background-color: #0d1117;
-  color: #ccc;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-}
-
-/* Dark Mode Toggle */
-.dark-mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0d1117;
-  border: none;
-  color: white;
-  padding: 0.7rem;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Modals */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 2rem;
-  border: 1px solid #888;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.btn-primary {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #1DB954;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #17a34a;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #0d1117;
-    position: absolute;
-    top: 60px;
-    right: 0;
-  }
-
-  .nav-links li {
-    text-align: center;
-    margin: 1rem 0;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav.active .nav-links {
-    display: flex;
-  }
-}
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chaami Music</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-  <!-- Header / Navbar -->
-  <header class="header">
-    <div class="container nav-container">
-      <h1 class="logo"><a href="home.html">Chaami Music</a></h1>
-      <nav class="nav">
-        <ul class="nav-links">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="radio.html">Radio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li> 
-          <li><a href="login.html">Sign Up/Login</a></li>
-         <!-- <li><a href="#" onclick="openModal('login-modal')">Login</a></li>
-          <li><a href="#" onclick="openModal('signup-modal')">Sign Up</a></li> -->
-        </ul>
-        <div class="menu-toggle" id="menu-toggle">
-          <i class="fas fa-bars"></i>
+    <center>
+        <h1>Chaami Music</h1>
+    </center>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="radio.html">Radio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>  
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="search()">Search</button>
         </div>
-      </nav>
+        
+        <section id="home">
+            <h2>Welcome to Chaami Music</h2>
+            <p>Discover and listen to amazing tracks!</p>
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="assets/slide1.png" alt="Slide 1">
+                </div>
+                <div class="slide fade">
+                    <img src="assets/slide2.png" alt="Slide 2">
+                </div>
+                <div class="slide fade">
+                    <img src="assets/slide3.png" alt="Slide 3">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+    </main>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">×</span>
+            <h2>Login</h2>
+            <form id="login-form">  
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                 <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="main">
-    <section class="hero">
-      <h2>Welcome to Chaami Music</h2>
-      <p>Discover and listen to amazing tracks!</p>
-
-      <!-- Search Bar -->
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search music...">
-        <button onclick="search()">Search</button>
-      </div>
-
-      <!-- Slideshow -->
-      <div class="slideshow">
-        <div class="slide fade">
-          <img src="slide1.png" alt="Slide 1">
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup-modal')">×</span>
+            <h2>Sign Up</h2>
+             <form id="signup-form">  
+                <div class="form-group">
+                    <label for="signup-name">Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
         </div>
-        <div class="slide fade">
-          <img src="slide2.png" alt="Slide 2">
-        </div>
-        <div class="slide fade">
-          <img src="slide3.png" alt="Slide 3">
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
-      </div>
-
-      <!-- Slide Dots -->
-      <div class="dots-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2024 Chaami Music. All rights reserved.</p>
-  </footer>
-
-  <!-- Login Modal -->
-  <div id="login-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('login-modal')">&times;</span>
-      <h2>Login</h2>
-      <form id="login-form">
-        <div class="form-group">
-          <input type="email" id="login-email" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <input type="password" id="login-password" placeholder="Password" required>
-        </div>
-        <button type="submit" class="btn-primary">Login</button>
-      </form>
     </div>
-  </div>
+    <footer>
+        <p>© 2024 Chaami Music. All rights reserved.</p> 
+    </footer>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
 
-  <!-- Sign Up Modal -->
-  <div id="signup-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('signup-modal')">&times;</span>
-      <h2>Sign Up</h2>
-      <form id="signup-form">
-        <div class="form-group">
-          <input type="text" id="signup-name" placeholder="Name" required>
-        </div>
-        <div class="form-group">
-          <input type="email" id="signup-email" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <input type="password" id="signup-password" placeholder="Password" required>
-        </div>
-        <button type="submit" class="btn-primary">Sign Up</button>
-      </form>
-    </div>
-  </div>
+        function plusSlides(n) {
+    slideIndex += n;
+    let slides = document.getElementsByClassName("slide");
+    if (slideIndex > slides.length) {slideIndex = 1}
+    if (slideIndex < 1) {slideIndex = slides.length}
+    showSlidesManual();
+        }
+        
+        function currentSlide(n) {
+    slideIndex = n;
+    showSlidesManual();
+        }
 
-  <!-- Scripts -->
-  <script src="scripts.js">  
-  </script>
+        function showSlidesManual() {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+        }
 
+        
+        function showSlides() {
+         let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+            }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+            }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 3 seconds
+        }
+        
+        function toggleDarkMode() {
+                        document.body.classList.toggle("dark-mode");
+                    }
+                    
+        function search() {
+            const searchTerm = document.getElementById('searchInput').value;
+            alert('Searching for: ' + searchTerm);
+        }
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+        }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+
+         // Login form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Form එක submit වෙන එක නවත්තන්න
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // මේක තාවකාලික login logic එකක්.
+            // ඇත්තම project එකකදී මේක backend එකත් එක්ක සම්බන්ධ වෙන්න ඕනේ.
+            console.log('Login attempt:', email, password);
+            alert('Logged in successfully! (Temporary)');
+            closeModal('login-modal');  // Login modal එක close කරන්න.
+        });
+
+        // Sign up form submission
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Form එක submit වෙන එක නවත්තන්න
+             const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+             // මේක තාවකාලික sign up logic එකක්.
+            // ඇත්තම project එකකදී මේක backend එකත් එක්ක සම්බන්ධ වෙන්න ඕනේ.
+            console.log('Sign up attempt:', name, email, password);
+            alert('Signed up successfully! (Temporary)');
+            closeModal('signup-modal');  // signup modal එක close කරන්න.
+        });
+
+    </script>
 </body>
 </html>
