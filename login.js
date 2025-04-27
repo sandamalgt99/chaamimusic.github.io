@@ -74,6 +74,6 @@ auth.onAuthStateChanged(user => {
   } else {
     // If NOT logged in ➔ redirect to login page
     alert('Please login first!');
-    window.location.href = "index.html";
+    window.location.href = "login.html";
   }
 });
