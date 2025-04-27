@@ -136,8 +136,9 @@ body {
 /* Slideshow */
 .slideshow {
   position: relative;
-  max-width: 700px;
-  margin: 2rem auto;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
 }
 
 .slide {
@@ -145,7 +146,7 @@ body {
 }
 
 .slide img {
-  width: 100%;
+  width: 50%;
   border-radius: 10px;
 }
 
@@ -155,15 +156,15 @@ body {
   position: absolute;
   top: 50%;
   width: auto;
-  padding: 1rem;
+  padding: 16px;
   margin-top: -22px;
   color: white;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 18px;
   transition: 0.3s;
   user-select: none;
   background-color: rgba(0,0,0,0.5);
-  border-radius: 50%;
+  border-radius: 0 3px 3px 0;
 }
 
 .prev {
@@ -172,6 +173,7 @@ body {
 
 .next {
   right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 /* Dots */
