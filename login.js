@@ -55,7 +55,11 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         lastLogin: new Date().toISOString()
       });
 
-      alert('Login successful!');
+      alert('Login successful! Redirecting...');
+
+      // 🚀 Redirect to Dashboard
+      window.location.href = "dashboard.html";
+
     })
     .catch((error) => {
       alert(error.message);
