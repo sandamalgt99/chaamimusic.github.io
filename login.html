@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup/Login with Firebase</title>
+</head>
+<body>
 
+<h2>Sign Up</h2>
+<form id="signupForm">
+  <input type="email" id="signupEmail" placeholder="Email" required><br><br>
+  <input type="password" id="signupPassword" placeholder="Password" required><br><br>
+  <button type="submit">Sign Up</button>
+</form>
+
+<h2>Login</h2>
+<form id="loginForm">
+  <input type="email" id="loginEmail" placeholder="Email" required><br><br>
+  <input type="password" id="loginPassword" placeholder="Password" required><br><br>
+  <button type="submit">Login</button>
+</form>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+<!-- Connect to your main script -->
+<script src="main.js"></script>
+
+</body>
+</html>
